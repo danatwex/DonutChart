@@ -11,26 +11,34 @@ struct LegendView: ChartDataHandling, View {
 
     var data: [(label: String, color: Color, value: Double)]
     var body: some View {
-        VStack{
-            ForEach(0..<data.count, id: \.self) { i in
-                HStack {
-                    Circle()
-                        .fill(self.data[i].color)
-                        .frame(width: 12)
-                        .padding(.leading)
-                    Text(self.data[i].label)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Text(String(format: "$%.2f", self.data[i].value))
-                        .font(.body.monospacedDigit())
-                        .foregroundColor(.primary)
-                    Text(percentages[i])
-                        .font(.body.monospacedDigit())
-                        .foregroundColor(.secondary)
-                        .padding(.horizontal)
+        let columns = [GridItem(.flexible(), spacing: 0, alignment: .center),
+                       GridItem(.flexible(), spacing: 0, alignment: .center)]
+        VStack {
+            LazyVGrid(columns: columns, alignment: .center) {
+                let count = data.count - (data.count % 2)
+                ForEach(0..<count, id: \.self) { i in
+                    HStack {
+                        Circle()
+                            .fill(self.data[i].color)
+                            .frame(width: 12)
+                        Text("\(percentages[i]) \(data[i].label)")
+                            .foregroundColor(.primary)
+                    }
                 }
             }
-        }
+            HStack {
+                let start = data.count - (data.count % 2)
+                ForEach(start..<data.count, id: \.self) { i in
+                    HStack {
+                        Circle()
+                            .fill(self.data[i].color)
+                            .frame(width: 12)
+                        Text("\(percentages[i]) \(data[i].label)")
+                            .foregroundColor(.primary)
+                    }
+                }
+            }
+        }.padding(.trailing)
     }
 }
 

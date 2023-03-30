@@ -17,7 +17,7 @@ struct DonutChartApp: App {
                 ("Discretionary", Color(uiColor: .systemCyan), 10),
                 ("Savings", Color(uiColor: .systemMint), 10)
             ]
-            ChartView(data: data)
+            ChartView(data: data).padding()
         }
     }
 }
