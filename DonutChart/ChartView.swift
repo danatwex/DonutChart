@@ -30,8 +30,8 @@ struct ChartView: ChartDataHandling, View {
                            height: geometry.size.width - padding)
                     Circle()
                         .fill(Color(uiColor: UIColor.systemBackground))
-                        .frame(width: geometry.size.width * width - padding,
-                               height: geometry.size.width * width - padding)
+                        .frame(width: (geometry.size.width - padding) * width,
+                               height: (geometry.size.width - padding) * width)
 
                     VStack(spacing: 2) {
                         Text(String(format: "$%.2f", spent) + " spent")
@@ -43,10 +43,9 @@ struct ChartView: ChartDataHandling, View {
                     }
                 }
                 LegendView(data: data)
-                    .padding(.top, 8)
+                    .padding(.top, 16)
             }
             .background(Color(uiColor: UIColor.systemBackground))
-            .foregroundColor(Color.white)
         }
     }
 }
