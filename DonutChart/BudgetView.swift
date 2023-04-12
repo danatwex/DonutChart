@@ -101,6 +101,9 @@ struct BudgetView: View {
             .toolbar {
                 Button("Skip") { }
             }
+            .onTapGesture {
+                self.hideKeyboard()
+            }
         }
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7144975629E6E8610060E36D /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144975529E6E8610060E36D /* BudgetView.swift */; };
+		7144975829E7147B0060E36D /* View+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144975729E7147B0060E36D /* View+HideKeyboard.swift */; };
 		71C9835729CCAB720008FBD4 /* DonutChartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9835629CCAB720008FBD4 /* DonutChartApp.swift */; };
 		71C9835929CCAB720008FBD4 /* SliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9835829CCAB720008FBD4 /* SliceView.swift */; };
 		71C9835B29CCAB740008FBD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C9835A29CCAB740008FBD4 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		7144975529E6E8610060E36D /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
+		7144975729E7147B0060E36D /* View+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+HideKeyboard.swift"; sourceTree = "<group>"; };
 		71C9835329CCAB720008FBD4 /* DonutChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonutChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C9835629CCAB720008FBD4 /* DonutChartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartApp.swift; sourceTree = "<group>"; };
 		71C9835829CCAB720008FBD4 /* SliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				71C9835629CCAB720008FBD4 /* DonutChartApp.swift */,
 				71C9835829CCAB720008FBD4 /* SliceView.swift */,
 				71C9836429CCB2DF0008FBD4 /* ChartView.swift */,
+				7144975729E7147B0060E36D /* View+HideKeyboard.swift */,
 				7144975529E6E8610060E36D /* BudgetView.swift */,
 				71C9836629CDDA390008FBD4 /* LegendView.swift */,
 				71C9835A29CCAB740008FBD4 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				71C9836729CDDA390008FBD4 /* LegendView.swift in Sources */,
 				71C9835729CCAB720008FBD4 /* DonutChartApp.swift in Sources */,
 				71C9836529CCB2DF0008FBD4 /* ChartView.swift in Sources */,
+				7144975829E7147B0060E36D /* View+HideKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
