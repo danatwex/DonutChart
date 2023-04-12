@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7144975629E6E8610060E36D /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144975529E6E8610060E36D /* BudgetView.swift */; };
 		71C9835729CCAB720008FBD4 /* DonutChartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9835629CCAB720008FBD4 /* DonutChartApp.swift */; };
 		71C9835929CCAB720008FBD4 /* SliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9835829CCAB720008FBD4 /* SliceView.swift */; };
 		71C9835B29CCAB740008FBD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C9835A29CCAB740008FBD4 /* Assets.xcassets */; };
 		71C9835E29CCAB740008FBD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C9835D29CCAB740008FBD4 /* Preview Assets.xcassets */; };
 		71C9836529CCB2DF0008FBD4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9836429CCB2DF0008FBD4 /* ChartView.swift */; };
 		71C9836729CDDA390008FBD4 /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9836629CDDA390008FBD4 /* LegendView.swift */; };
-		71C9836929CDDD160008FBD4 /* ChartDataHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9836829CDDD160008FBD4 /* ChartDataHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7144975529E6E8610060E36D /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
 		71C9835329CCAB720008FBD4 /* DonutChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonutChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C9835629CCAB720008FBD4 /* DonutChartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartApp.swift; sourceTree = "<group>"; };
 		71C9835829CCAB720008FBD4 /* SliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceView.swift; sourceTree = "<group>"; };
@@ -24,7 +25,6 @@
 		71C9835D29CCAB740008FBD4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71C9836429CCB2DF0008FBD4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		71C9836629CDDA390008FBD4 /* LegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendView.swift; sourceTree = "<group>"; };
-		71C9836829CDDD160008FBD4 /* ChartDataHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 				71C9835629CCAB720008FBD4 /* DonutChartApp.swift */,
 				71C9835829CCAB720008FBD4 /* SliceView.swift */,
 				71C9836429CCB2DF0008FBD4 /* ChartView.swift */,
+				7144975529E6E8610060E36D /* BudgetView.swift */,
 				71C9836629CDDA390008FBD4 /* LegendView.swift */,
-				71C9836829CDDD160008FBD4 /* ChartDataHandling.swift */,
 				71C9835A29CCAB740008FBD4 /* Assets.xcassets */,
 				71C9835C29CCAB740008FBD4 /* Preview Content */,
 			);
@@ -147,10 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				71C9835929CCAB720008FBD4 /* SliceView.swift in Sources */,
+				7144975629E6E8610060E36D /* BudgetView.swift in Sources */,
 				71C9836729CDDA390008FBD4 /* LegendView.swift in Sources */,
 				71C9835729CCAB720008FBD4 /* DonutChartApp.swift in Sources */,
 				71C9836529CCB2DF0008FBD4 /* ChartView.swift in Sources */,
-				71C9836929CDDD160008FBD4 /* ChartDataHandling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,16 @@
 
 import SwiftUI
 
-struct LegendView: ChartDataHandling, View {
+struct LegendView: View {
 
     var data: [(label: String, color: Color, value: Double)]
+
+    var values: [Double] { return data.map{ $0.value } }
+
+    var percentages: [String] {
+        return values.map { String(format: "%.0f%%", $0 * 100 / values.reduce(0, +)) }
+    }
+
     var body: some View {
         let columns = [GridItem(.flexible(), spacing: 0, alignment: .center),
                        GridItem(.flexible(), spacing: 0, alignment: .center)]
@@ -23,6 +30,7 @@ struct LegendView: ChartDataHandling, View {
                             .frame(width: 12)
                         Text("\(percentages[i]) \(data[i].label)")
                             .foregroundColor(.primary)
+                            .lineLimit(1)
                     }
                 }
             }
@@ -35,6 +43,7 @@ struct LegendView: ChartDataHandling, View {
                             .frame(width: 12)
                         Text("\(percentages[i]) \(data[i].label)")
                             .foregroundColor(.primary)
+                            .lineLimit(1)
                     }
                 }
             }

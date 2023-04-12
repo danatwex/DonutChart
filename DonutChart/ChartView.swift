@@ -7,46 +7,72 @@
 
 import SwiftUI
 
-struct ChartView: ChartDataHandling, View {
+struct ChartView: View {
 
     var data: [(label: String, color: Color, value: Double)]
 
-    public var width: CGFloat = 0.80
-    public var padding: CGFloat = 60.0
+    var values: [Double] { return data.map{ $0.value } }
 
-    public var total = 90.0
-    public var spent = 90.0
+    var spent: Double
+
+    var leftover: Double
+
+    var currencyFormatter: NumberFormatter {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 2
+        return currencyFormatter
+    }
+
+    var slices: [SliceData] {
+        let valueSum = values.reduce(0, +)
+        var degreeSum: Double = 0
+        var slices: [SliceData] = []
+
+        for (i, value) in values.enumerated() {
+            let degrees: Double = value * 360 / valueSum
+            if degrees > 2 {
+                slices.append(SliceData(startAngle: Angle(degrees: degreeSum),
+                                            endAngle: Angle(degrees: degreeSum + degrees),
+                                            text: String(format: "%.0f%%", value * 100 / valueSum),
+                                            color: self.data[i].color))
+                degreeSum += degrees
+            }
+        }
+        return slices
+    }
 
     public var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                ZStack {
-                    let slices = self.slices
-                    ForEach(0..<self.values.count, id: \.self) { i in
-                        SliceView(sliceData: slices[i])
-                            .animation(Animation.spring(), value: 3)
-                    }
-                    .frame(width: geometry.size.width - padding,
-                           height: geometry.size.width - padding)
-                    Circle()
-                        .fill(Color(uiColor: UIColor.systemBackground))
-                        .frame(width: (geometry.size.width - padding) * width,
-                               height: (geometry.size.width - padding) * width)
-
-                    VStack(spacing: 2) {
-                        Text(String(format: "$%.2f", spent) + " spent")
-                            .foregroundColor(Color.primary)
-                            .font(.title2)
-                        Text(String(format: "$%.2f", total - spent) + " leftover")
-                            .font(.callout)
-                            .foregroundColor(Color.secondary)
-                    }
+        VStack {
+            ZStack {
+                let slices = self.slices
+                let size = 0.65 * UIScreen.main.bounds.size.width
+                let ringWidth: CGFloat = 28
+                ForEach(0..<self.slices.count, id: \.self) { i in
+                    SliceView(sliceData: slices[i])
                 }
-                LegendView(data: data)
-                    .padding(.top, 16)
+                .frame(width: size, height: size)
+
+                Circle()
+                    .fill(Color(.systemBackground))
+                    .frame(width: size - ringWidth * 2,
+                           height: size - ringWidth * 2)
+
+
+
+                let formatter = currencyFormatter
+
+                VStack(spacing: 2) {
+                    Text((formatter.string(from: NSNumber(value: spent)) ?? "") + " spent")
+                        .foregroundColor(Color.primary)
+                        .font(.title3)
+                    Text((formatter.string(from: NSNumber(value: leftover)) ?? "") + " leftover")
+                        .font(.caption)
+                        .foregroundColor(Color.secondary)
+                }
             }
-            .background(Color(uiColor: UIColor.systemBackground))
         }
+        .background(Color(.systemBackground))
     }
 }
 
@@ -54,11 +80,11 @@ struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
 
         let data: [(label: String, color: Color, value: Double)] = [
-            ("Essentials", Color(uiColor: .systemBlue), 10),
-            ("Discretionary", Color(uiColor: .systemCyan), 10),
-            ("Savings", Color(uiColor: .systemMint), 10)
+            ("Essentials", Color.blue, 10),
+            ("Discretionary", Color.cyan, 10),
+            ("Savings", Color.mint, 10)
         ]
-        ChartView(data: data)
+        ChartView(data: data, spent: 30, leftover: 60)
             .padding()
     }
 }
